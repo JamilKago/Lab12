@@ -75,13 +75,14 @@
 
   bool operator >(const ComplexNumber z1, const ComplexNumber z2)
   {
-    return  z1.modpow2() > z2.modpow2() ? true : false;
+    return  z1.modpow2() > z2.modpow2() ;
   }
 
-  ComplexNumber operator-(const ComplexNumber z)
+  ComplexNumber ComplexNumber::operator-(const ComplexNumber c2) const
   {
-    return ComplexNumber( -z._re, -z._im );
+      return ComplexNumber(_re - c2._re, _im - c2._im);
   }
+
 
   ComplexNumber operator+(const double z1, const ComplexNumber z2)
   {

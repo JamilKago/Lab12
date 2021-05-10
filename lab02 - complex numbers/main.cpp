@@ -16,7 +16,7 @@ Po odkomentowaniu #DEFINE ERROR, powinien pojawic sie blad kompilacji dokladnie 
 #include "ComplexNumber.h"
 #include <iostream>
 
-//#define ERROR
+// #define ERROR
 
 int main ()
 {
