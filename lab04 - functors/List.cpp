@@ -40,26 +40,15 @@
 
   }
 
-   void List::print() const
+  List List::filter( std::function <bool(int)> f)
   {
-    std::cout<<"[ ";
+    List l_out;
     for(unsigned int i=0;i<_data.size();i++)
     {
-      std::cout<<_data[i]<<" ";
-    }
-    std::cout<<"]\n";
-
-  }
-
-  List& List::filter( std::function <bool(int)> f)
-  {
-    List* l_out = new List;
-    for(unsigned int i=0;i<_data.size();i++)
-    {
-      if( f(_data[i]) )   l_out->insert(_data[i]);
+      if( f(_data[i]) )   l_out.insert(_data[i]);
     }
 
-    return *l_out ;
+    return l_out ;
   }
 
 

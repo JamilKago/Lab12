@@ -4,36 +4,24 @@
 #include <functional>
 
 
-/*klasa przetrzymujaca funkcje porownujace
-@param wektor funkckji
-  */
+//--- class that gets comparison functions 
 class FilterCriteria
 {
   private:
   std::vector< std::function<bool(int)>> _fun;
 
   public:
-  /*kosntruktor domyslny
-  */
+  //--- constructors and destructors
   FilterCriteria() = default;
-
-  /*destruktor
-  */
   ~FilterCriteria();
 
-  /*operator zasiegu do funkckji
-  @param indeks funkckji
-  @return funkcja 
-  */
+  //--- access operator 
   std::function<bool(int)> get(const int id);
 
-  /*dodanie obiektu funkcyjnego do wektora
-  */
+  //--- method adding a function
   void add( std::function <bool(int)> f);
 
-  /*fukcja zwracajaca rozmiar wektora
-  @return rozmiar wektora
-  */
+  //--- method returning amount of functions
   int size() const;
 
 };

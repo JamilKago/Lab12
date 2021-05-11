@@ -1,5 +1,5 @@
 CXX = g++
-EXEC = main
+EXEC = main.out
 CXXFLAGS = $(flag) -std=c++14 -Wall -pedantic
 SRC = $(wildcard *.cpp)
 OBJS = $(SRC:.cpp=.o)
