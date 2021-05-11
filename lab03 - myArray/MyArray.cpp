@@ -1,27 +1,39 @@
  #include "MyArray.h"
 
-  MyArray::MyArray(const int size) : _size(size)
-  { 
-    _data = new int[_size];
+  MyArray::MyArray(): _data(nullptr), _size(0), _next(nullptr)
+  {}
+
+
+  MyArray::MyArray(const int size): _data(nullptr), _size(size), _next(nullptr)
+  {
+    if (_size ) 
+    {
+        _data = new int[_size];
+        for (int i = 0; i < _size; i++) _data[i] = 0;
+    } 
   }
 
   MyArray::MyArray(const MyArray& org): 
-  _size(org._size), _next(org._next)
+  _data(nullptr), _size(org._size), _next(org._next)
   {
-    _data = new int[_size];
-    for(int i=0;i<_size;i++)  _data[i] = org._data[i];
+	if (_size ) 
+	{
+	    _data = new int[_size];
+	    for (int i = 0; i < _size; i++) _data[i] = org._data[i];
+	} 
   }
 
-  MyArray::MyArray (MyArray&& org):
-  _size(std::exchange(org._size,0)), _data(std::exchange(org._data,nullptr)), 
-  _next(std::exchange(org._next,nullptr))
-  {}
+  MyArray::MyArray (MyArray&& org)
+  {
+  	_size = std::__exchange(org._size,0);
+  	_data = std::__exchange(org._data,nullptr);
+  	_next = std::__exchange(org._next,nullptr);
+  }
 
   MyArray::~MyArray()
   {
-    delete [] _data;
-    _size = 0;
-    delete _next;
+  	if( _data )
+    	delete [] _data; 
   }
 
   int& MyArray::operator[](const int id)
@@ -36,7 +48,7 @@
   
   MyArray MyArray::operator++(int)
   {
-    MyArray copy = *this;
+    MyArray copy = MyArray(*this);
     for(int i=0;i<size();i++)
     {
       _data[i]++;
@@ -55,14 +67,16 @@
 
   MyArray& MyArray::operator=(const MyArray& T)
   {
-    if (this == &T) return *this;
+    if (this == &T) 
+    	return *this;
     else
     {
       _size = T._size;
       _next = T._next;
       delete[] _data;
       _data = new int[_size];
-      for(int i=0;i<_size;i++)  _data[i] = T._data[i];
+      for(int i=0;i<_size;i++)  
+      	_data[i] = T._data[i];
       return *this;
     }
   }
@@ -70,25 +84,33 @@
 
   MyArray& MyArray::operator+=(MyArray& T)
   {
-    MyArray* temp = this;
-    while (temp->_next != nullptr)
+    if (_next == nullptr) 
     {
-      temp = temp -> _next;
+        _next = &T;
+    } 
+    else 
+    {
+        *_next += T;
     }
-    temp->_next = &T;
     return *this;
   }
+  
 
   MyArray& MyArray::operator+=(MyArray&& T)
   {
-    MyArray* temp = this;
-    while (temp->_next != nullptr)
-    {
-      temp = temp -> _next;
-    }
-    temp->_next = new MyArray(T);
+   	int* temp = new int[ _size + T._size ];
+   	for (int i = 0; i < _size; ++i)	
+   		temp[i] = _data[i];
+
+   	for (int i = 0; i < T._size; ++i)	
+   		temp[_size + i] = T._data[i];
+
+   	_size = _size + T._size;
+   	delete [] _data;
+   	_data = temp;
     return *this;
   }
+  
 
   void MyArray::print(std::string prefix) const
   {
@@ -99,6 +121,8 @@
       std::cout<<*temp<<" ";
       temp = temp->_next;
     } 
+    std::cout<<*temp<<" ";
+
   }
 
   MyArray& MyArray::getNext()
@@ -113,14 +137,14 @@
 
   std::ostream& operator<<(std::ostream& out, const MyArray& T)
   {
-    if(T.size()) 
+    if( T.size() != 0 ) 
     {
-      std::cout<<"[";
+      out<<"[";
       for(int i=0; i<T.size(); i++)
       {
-        std::cout << T[i] <<", ";
+        out << T[i] <<", ";
       }
-      std::cout<<"\b\b]";
+      out<<"\b\b]";
       
     }
     return out;

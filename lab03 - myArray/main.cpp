@@ -53,7 +53,7 @@ int main()
     std::cout << "next = " << tab2.getNext() << std::endl;
     mtab1.print("Mtab1: ");
     MyArray mtab1Copy = mtab1;
-    mtab1.print("\nKopia mtab1: ");
+    mtab1Copy.print("\nKopia mtab1: ");
   
     std::cout << "\n\nDołączanie zwykle\n";
     MyArray newtab(3);
