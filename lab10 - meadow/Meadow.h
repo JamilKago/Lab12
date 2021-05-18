@@ -6,7 +6,7 @@
 #include <algorithm>
 #include <memory>
 
-//class representiong meadoaw of animals
+//class representing meadow with animals
 class Meadow
 {
   protected:
@@ -16,7 +16,7 @@ class Meadow
   //constructor
   Meadow() = default;
 
-  //printing all animals with prefix 
+  //printing all animals in meadow with prefix 
   void print(std::string prefix) const;
 
   //adding naxt animal
