@@ -2,8 +2,7 @@
 #include <iostream>
 
 
-/*klasa reprezentujaca zmierzeta
-*/
+//class of aniamls
 class Animal
 {
   protected:
@@ -11,27 +10,20 @@ class Animal
 
   public:
 
-  /*konstruktor jednoargumentowy
-  @param imie zwierzecia
-  */
+  //constructor and destructor
   explicit Animal(std::string name): _name(name)
   {}
 
-  /*destrukotr
-  */
   virtual ~Animal() = default;
 
 
-  /*wypisanie imienia
-  @return imie 
-  */
+  //printing name
   std::string name() const
   {
     return _name;
   }
 
-  /*wypisanie inforamcji o zwierzeciu
-  */
+  //printing info about animal
   virtual void print() const = 0; 
 
 };

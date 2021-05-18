@@ -4,76 +4,57 @@
 #include "Animal.h"
 
 
-/*klasa reprezentujaca krowa
-*/
+//class of cow
 class Cow: public Animal
 {
   protected:
 
   public:
-   /*konstruktor jednoargumentowy
-  @param imie krowy
-  */
+  //constructor and destructors
   Cow(std::string name);
-  
-  /*destrukotr
-  */
+
   ~Cow();
 
-  /*wypisanie inforamcji o krowie
-  */
+  //printing inforamtion about cow
   void print() const override;
 
 
 };
 
 
-/*klasa reprezentujaca konia
-*/
+//class of horse
 class Horse: public Animal
 {
   protected:
 
   public:
-   /*konstruktor jednoargumentowy
-  @param imie konia
-  */
+  //constructor and destructors
   Horse(std::string name);
-  
-  /*destrukotr
-  */
+
   ~Horse();
 
-  /*wypisanie inforamcji o koniu
-  */
+  //printing inforamtion about horse
   void print() const override;
 
 };
 
 
-/*klasa reprezentujaca owce ktora mozna ostrzyc
-*/
+//class of sheep
 class Sheep: public Animal
 {
   protected:
   bool _sheared;
 
   public:
-  /*konstruktor jednoargumentowy
-  @param imie owcy
-  */
+  //constructor and destructors
   Sheep(std::string name);
-  
-  /*destrukotr
-  */
+ 
   ~Sheep();
 
-  /*wypisanie inforamcji o owcy
-  */
+  //printing inforamtion about horse
   void print() const override;
 
-  /*strzyzenie owcy
-  */
+  //shearing sheep
   void shear();
 
 };

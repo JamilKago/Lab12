@@ -6,35 +6,26 @@
 #include <algorithm>
 #include <memory>
 
-/*klasa stado zwierzat
-*/
+//class representiong meadoaw of animals
 class Meadow
 {
   protected:
   std::vector< std::unique_ptr<Animal> > _animals;
 
   public:
-  /*konstruktor domyslny
-  */
+  //constructor
   Meadow() = default;
 
-  /*wypisanie inforamcji o stadzie
-  @param prefix
-  */
+  //printing all animals with prefix 
   void print(std::string prefix) const;
 
-  /*dodanie zwierzecia do stada
-  @param unique_ptr wskazujacy na zwierze
-  */
+  //adding naxt animal
   void add( std::unique_ptr<Animal> animal );
 
-  /*zebranie wszytkich owiec ze stada
-  @return wekotr owiec ze statda
-  */
+  //getting all sheeps
   std::vector< Sheep* > getSheepHerd();
 
-  /*zliczenie i wypisanei imion zwierzat alfabetycznie
-  */
+  //countiong and printiong occuring of animals names
   void countNames();
 
 };

@@ -8,10 +8,7 @@
 
 using namespace std;
 
-/*klasa przechowujaca inforamcje w ydatkach danego dnia
-@param dzien
-@param lista wydatkow
-*/
+//class representing list of expenses from definite day 
 class Expense
 {
   protected:
@@ -19,31 +16,21 @@ class Expense
   vector<double> _data; 
 
   public:
-  /*konstruktor
-  @param dzien
-  @param lista wydatkow
-  */
+  //constructors
   Expense(string name, vector<double> data);
   
-  /*getter wydatków
-  @return wydatki
-  */
+  //getters
   vector<double>& data();
   
-  /* srednia z dnia
-  @return średnia z danego dnia
-  */
+  //averege of expenses
   double mean() const;
   
-  /*metoda wypisujaca
-  */
+  //printing info about day
   void print() const;
 
 };
 
-/*funkcja pomocnicza do wypisywania
- @param obiekt typu Expense
-*/
+//additional function for printing
 void to_print(const Expense day);
 
 

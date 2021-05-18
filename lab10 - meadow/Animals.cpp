@@ -5,7 +5,7 @@
   
   Cow::~Cow()
   {
-    std::cout<<"- Krowa "<< _name << "wraca do obory"<<std::endl;
+    std::cout<<"- Krowa "<< _name << " - destrukor"<<std::endl;
   }    
 
   void Cow::print() const 
@@ -23,7 +23,7 @@
   
   Horse::~Horse()
   {
-    std::cout<<"- Koń "<< _name << "wraca do stajni"<<std::endl;
+    std::cout<<"- Koń "<< _name << " - destrukor"<<std::endl;
   }
 
   void Horse::print() const 
@@ -40,7 +40,7 @@
   
   Sheep::~Sheep()
   {
-    std::cout<<"- Owca "<< _name <<" "<<(_sheared?"":"nie") <<"ostrzyzona "<< "wraca do zagrody"<<std::endl;
+    std::cout<<"- Owca "<< _name <<" "<<(_sheared?"":"nie") <<"ostrzyzona "<< "- destrukor"<<std::endl;
   }
 
   void Sheep::print() const 

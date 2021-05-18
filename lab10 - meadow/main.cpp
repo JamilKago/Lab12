@@ -79,13 +79,13 @@ Beata
 - Krowa Mucka
 - Owca Beata ostrzyzona
 ====== Koniec wypasu ====== 
-- Owca Bernadeta ostrzyzona wraca do zagrody
-- Krowa Mucka wraca do obory
-- Krowa Krasula wraca do obory
-- Kon Rafal wraca do stajni
-- Owca Beata ostrzyzona wraca do zagrody
-- Krowa Mucka wraca do obory
-- Owca Beata ostrzyzona wraca do zagrody
-- Owca Beata nieostrzyzona wraca do zagrody
+- Owca Bernadeta ostrzyzona - destrukor
+- Krowa Mucka - destrukor
+- Krowa Krasula - destrukor
+- Kon Rafal - destrukor
+- Owca Beata ostrzyzona - destrukor
+- Krowa Mucka - destrukor
+- Owca Beata ostrzyzona - destrukor
+- Owca Beata nieostrzyzona - destrukor
 
  */
